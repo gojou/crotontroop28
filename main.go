@@ -14,11 +14,11 @@ import (
 )
 
 type TemplateParams struct {
-	p1    string
-
+	p1 string
 }
 
 func main() {
+	http.HandleFunc("/rules", rulesHandler)
 	http.HandleFunc("/", indexHandler)
 	appengine.Main() // Starts the server to receive requests
 }
@@ -47,4 +47,17 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		//	return
 	}
 
+}
+
+func rulesHandler(w http.ResponseWriter, r *http.Request) {
+
+	page := template.Must(template.ParseFiles(
+		"static/html/_base.html",
+		"static/html/rules.html",
+	))
+
+	if r.Method == "GET" {
+		page.Execute(w, nil)
+		return
+	}
 }
