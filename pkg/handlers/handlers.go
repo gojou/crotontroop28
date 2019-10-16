@@ -1,29 +1,22 @@
-package main
+package handlers
 
 import (
-	//	"fmt"
 	"html/template"
 	"net/http"
-	//	"time"
-	//	"strconv"
-
-	// "google.golang.org/appengine/datastore"
-	// "google.golang.org/appengine/log"
-
-	"google.golang.org/appengine"
 )
-
 type TemplateParams struct {
 	p1 string
 }
 
-func main() {
-	http.HandleFunc("/rules", rulesHandler)
-	http.HandleFunc("/", indexHandler)
-	appengine.Main() // Starts the server to receive requests
-}
+// func IndexHandler(w http.ResponseWriter, r *http.Request) {
+// 	if r.URL.Path != "/" {
+// 		http.NotFound(w, r)
+// 		return
+// 	}
+// 	fmt.Fprint(w, "Hello, World!")
+// }
 
-func indexHandler(w http.ResponseWriter, r *http.Request) {
+func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	params := TemplateParams{}
 
 	// Set the default page
@@ -49,7 +42,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func rulesHandler(w http.ResponseWriter, r *http.Request) {
+func RulesHandler(w http.ResponseWriter, r *http.Request) {
 
 	page := template.Must(template.ParseFiles(
 		"static/html/_base.html",
