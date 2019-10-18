@@ -5,13 +5,16 @@ import (
 	"log"
 	"net/http"
 	"os"
-	handlers "crotontroop28/pkg/handlers"
+	"crotontroop28/pkg/handlers"
 )
 
 
 func main() {
-
-	http.HandleFunc("/rules", handlers.RulesHandler)
+	http.HandleFunc("/classicwreath", handlers.ClassicWreathHandler)
+	http.HandleFunc("/victorianwreath", handlers.VictorianWreathHandler)
+	http.HandleFunc("/classicspray", handlers.ClassicSprayHandler)
+	http.HandleFunc("/victorianspray", handlers.VictorianSprayHandler)
+	http.HandleFunc("/products", handlers.ProductsHandler)
 	http.HandleFunc("/", handlers.IndexHandler)
 
 

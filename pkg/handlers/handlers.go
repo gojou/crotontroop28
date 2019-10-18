@@ -4,17 +4,10 @@ import (
 	"html/template"
 	"net/http"
 )
+
 type TemplateParams struct {
 	p1 string
 }
-
-// func IndexHandler(w http.ResponseWriter, r *http.Request) {
-// 	if r.URL.Path != "/" {
-// 		http.NotFound(w, r)
-// 		return
-// 	}
-// 	fmt.Fprint(w, "Hello, World!")
-// }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	params := TemplateParams{}
@@ -42,11 +35,63 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func RulesHandler(w http.ResponseWriter, r *http.Request) {
+func ProductsHandler(w http.ResponseWriter, r *http.Request) {
 
 	page := template.Must(template.ParseFiles(
 		"static/html/_base.html",
-		"static/html/rules.html",
+		"static/html/products.html",
+	))
+
+	if r.Method == "GET" {
+		page.Execute(w, nil)
+		return
+	}
+}
+
+func ClassicSprayHandler(w http.ResponseWriter, r *http.Request) {
+
+	page := template.Must(template.ParseFiles(
+		"static/html/_base.html",
+		"static/html/classicspray.html",
+	))
+
+	if r.Method == "GET" {
+		page.Execute(w, nil)
+		return
+	}
+}
+
+func ClassicWreathHandler(w http.ResponseWriter, r *http.Request) {
+
+	page := template.Must(template.ParseFiles(
+		"static/html/_base.html",
+		"static/html/classicwreath.html",
+	))
+
+	if r.Method == "GET" {
+		page.Execute(w, nil)
+		return
+	}
+}
+
+func VictorianSprayHandler(w http.ResponseWriter, r *http.Request) {
+
+	page := template.Must(template.ParseFiles(
+		"static/html/_base.html",
+		"static/html/victorianspray.html",
+	))
+
+	if r.Method == "GET" {
+		page.Execute(w, nil)
+		return
+	}
+}
+
+func VictorianWreathHandler(w http.ResponseWriter, r *http.Request) {
+
+	page := template.Must(template.ParseFiles(
+		"static/html/_base.html",
+		"static/html/victorianwreath.html",
 	))
 
 	if r.Method == "GET" {
