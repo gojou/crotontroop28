@@ -10,30 +10,25 @@ body {
 }
 
 
+.container28 {
+  background-color: rgba(240, 240, 240, .6);
+  height: available;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
 
 .jumbotron {
-  background-image: url("/static/images/hiking.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.jumboHVLST {
-  background-color: white;
-  opacity: 0.5;
-}
-
-#jumbocustom {
-  text-align: center;
-  color: rgba(0, 0, 255, 1.0);
-  font-weight: 600;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .card {
-  margin-top: 24px;
+  margin-top: 2em;
 }
 
 .card-text {
-  padding-top: 12px;
+  padding-top: 1em;
+  padding-bottom: 1em;
   /* height: 120px !important;
   overflow: hidden;
     background-image: linear-gradient(to bottom, transparent, white); */

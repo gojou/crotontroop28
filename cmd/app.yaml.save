@@ -1,0 +1,15 @@
+runtime:       go111
+main:          ./cmd
+handlers:
+
+- url:         /static/css
+  static_dir:  static/css
+
+- url:         /static/images
+  static_dir:  static/images
+
+
+# All active conten handled by the app
+- url: /.*
+  script: auto
+  secure: always

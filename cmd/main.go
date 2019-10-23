@@ -10,10 +10,10 @@ import (
 
 
 func main() {
-	http.HandleFunc("/classicwreath", handlers.ClassicWreathHandler)
-	http.HandleFunc("/victorianwreath", handlers.VictorianWreathHandler)
-	http.HandleFunc("/classicspray", handlers.ClassicSprayHandler)
-	http.HandleFunc("/victorianspray", handlers.VictorianSprayHandler)
+	http.HandleFunc("/products/classicwreath", handlers.ClassicWreathHandler)
+	http.HandleFunc("/products/victorianwreath", handlers.VictorianWreathHandler)
+	http.HandleFunc("/products/classicspray", handlers.ClassicSprayHandler)
+	http.HandleFunc("/products/victorianspray", handlers.VictorianSprayHandler)
 	http.HandleFunc("/products", handlers.ProductsHandler)
 	http.HandleFunc("/", handlers.IndexHandler)
 
