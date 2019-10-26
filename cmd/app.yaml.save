@@ -1,5 +1,5 @@
 runtime:       go111
-
+main:          ./cmd
 handlers:
 
 - url:         /static/css

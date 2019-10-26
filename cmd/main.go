@@ -5,13 +5,16 @@ import (
 	"log"
 	"net/http"
 	"os"
-	handlers "crotontroop28/pkg/handlers"
+	"github.com/gojou/crotontroop28/pkg/handlers"
 )
 
 
 func main() {
-
-	http.HandleFunc("/rules", handlers.RulesHandler)
+	http.HandleFunc("/products/classicwreath", handlers.ClassicWreathHandler)
+	http.HandleFunc("/products/victorianwreath", handlers.VictorianWreathHandler)
+	http.HandleFunc("/products/classicspray", handlers.ClassicSprayHandler)
+	http.HandleFunc("/products/victorianspray", handlers.VictorianSprayHandler)
+	http.HandleFunc("/products", handlers.ProductsHandler)
 	http.HandleFunc("/", handlers.IndexHandler)
 
 
@@ -23,6 +26,5 @@ if port == "" {
 
 log.Printf("Listening on port %s", port)
 log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
-// [END setting_port]
 
 }
