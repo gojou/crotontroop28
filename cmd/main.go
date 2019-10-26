@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"crotontroop28/pkg/handlers"
+	"github.com/gojou/crotontroop28/pkg/handlers"
 )
 
 
@@ -26,6 +26,5 @@ if port == "" {
 
 log.Printf("Listening on port %s", port)
 log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
-// [END setting_port]
 
 }
