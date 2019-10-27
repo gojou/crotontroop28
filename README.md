@@ -1,4 +1,2 @@
-# goscouting
-Go Scouting Now!
-
-Manage your Scouting Community here!
+# Croton Troop 28
+Croton Troop 28 Fundraising Site
