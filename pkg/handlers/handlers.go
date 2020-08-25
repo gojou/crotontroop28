@@ -24,14 +24,15 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		"static/html/_base.html",
 		"static/html/index.html",
 	))
+	handle(w, r, page)
+}
 
-	//Display 404 if it's odball URL
-	if r.URL.Path != "/" {
-		page = template.Must(template.ParseFiles(
-			"static/html/_base.html",
-			"static/html/404.html",
-		))
-	}
+// NotFoundHandler TODO: Document
+func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
+	page = template.Must(template.ParseFiles(
+		"static/html/_base.html",
+		"static/html/404.html",
+	))
 	handle(w, r, page)
 }
 

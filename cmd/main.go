@@ -6,24 +6,26 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gojou/crotontroop28/pkg/handlers"
+	"github.com/gorilla/mux"
 )
 
 func main() {
-	http.HandleFunc("/products/classicwreath", handlers.ClassicWreathHandler)
-	http.HandleFunc("/products/victorianwreath", handlers.VictorianWreathHandler)
-	http.HandleFunc("/products/classicspray", handlers.ClassicSprayHandler)
-	http.HandleFunc("/products/victorianspray", handlers.VictorianSprayHandler)
-	http.HandleFunc("/products", handlers.ProductsHandler)
-	http.HandleFunc("/", handlers.IndexHandler)
+	e := run()
+	if e != nil {
+		log.Fatalf("Fatal error: %v\n", e)
+	}
 
+}
+func run() (e error) {
+	r := mux.NewRouter()
+	routes(r)
+
+	// Critical to work on AppEngine
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 		log.Printf("Defaulting to port %s", port)
 	}
-
-	log.Printf("Listening on port %s", port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
-
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), r))
+	return e
 }
