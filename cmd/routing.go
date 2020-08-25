@@ -14,6 +14,9 @@ func routes(r *mux.Router) {
 	r.HandleFunc("/products/victorianspray", handlers.VictorianSprayHandler)
 	r.HandleFunc("/products", handlers.ProductsHandler)
 	r.HandleFunc("/", handlers.IndexHandler)
+	r.HandleFunc("/chili", handlers.ChiliHandler)
+	r.HandleFunc("/chili/rules", handlers.RulesHandler)
+
 	r.NotFoundHandler = http.HandlerFunc(handlers.NotFoundHandler)
 
 }
