@@ -15,7 +15,6 @@ var (
 	params TemplateParams
 )
 
-
 func handle(w http.ResponseWriter, r *http.Request, p *template.Template) {
 	if r.Method == "GET" {
 		p.Execute(w, params)
